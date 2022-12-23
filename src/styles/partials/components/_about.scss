@@ -1,0 +1,115 @@
+#about {
+  @include dimension(100%, 100%);
+  position: relative;
+  @include margin-y(0rem, 6rem);
+}
+
+.about_wrapper {
+  display: grid;
+  position: relative;
+  @include grid-cols(2, 1fr, 1fr);
+
+  @include devices(md) {
+    display: block;
+    @include grid-cols(1, 1fr, 1fr);
+  }
+}
+
+.about_item_image {
+  @include devices(md) {
+    display: none;
+  }
+  img {
+    @include img-fit;
+  }
+}
+
+.about_item_text {
+  text-shadow: var(--text-shadow);
+  padding: 3rem 0 0 3rem;
+  @include devices(md) {
+    padding: 3rem 0 0 0;
+  }
+  h2 {
+    text-transform: capitalize;
+    word-spacing: 3px;
+    font-weight: 800;
+    color: black;
+    font-size: 3rem;
+    span {
+      color: var(--color-hover);
+      text-decoration: underline;
+    }
+    .typed-cursor {
+      color: rgb(34, 34, 34);
+    }
+    @include margin-y(0.8rem, 1rem);
+
+    @include devices(sm) {
+      font-size: 1.8rem;
+    }
+
+    @include devices(xs) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .about_goals {
+    font-size: 16px;
+    font-weight: 400;
+    @include margin-y(1rem, 2rem);
+    word-wrap: break-word;
+  }
+  .about_info {
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1rem;
+      span {
+        display: block;
+        word-wrap: break-word;
+        width: 130px;
+        &:nth-child(1) {
+          font-weight: 600;
+          color: black;
+        }
+        &:nth-child(2) {
+          width: calc(100% - 130px);
+        }
+      }
+    }
+  }
+  .about_projects_count {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    @include margin-y(2rem, 0rem);
+    span {
+      color: var(--color-hover);
+    }
+  }
+  .btn {
+    @include margin-y(2rem, 2rem);
+  }
+}
+
+.partner {
+  @include margin-y(2rem, 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  img {
+    width: 120px;
+  }
+  @include devices(mdlg) {
+    justify-content: center;
+    gap: 20px;
+  }
+  @include devices(xs) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

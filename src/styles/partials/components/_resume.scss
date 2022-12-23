@@ -1,0 +1,6 @@
+#resume {
+  .resume-wrapper {
+    display: grid;
+    @include grid-cols(2, 0.3fr, 0.7fr);
+  }
+}

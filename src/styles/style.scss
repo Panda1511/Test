@@ -1,0 +1,15 @@
+// Base
+@import "./partials/base/variables";
+@import "./partials/base/mixins";
+@import "./partials/base/reset";
+@import "./partials/base/common";
+
+// Components
+@import "./partials/components/header";
+@import "./partials/components/navbar";
+@import "./partials/components/about";
+@import "./partials/components/footer";
+@import "./partials/components/backtop";
+@import "./partials/components/home";
+@import "./partials/components/resume";
+@import "./partials/components/tabs";
