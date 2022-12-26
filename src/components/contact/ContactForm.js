@@ -1,9 +1,12 @@
 import { aboutImage } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ContactForm = () => {
   return (
     <div className="form-wrapper">
-      <img
+      <LazyLoadImage
+        effect="blur"
+        placeholderSrc={aboutImage}
         src={aboutImage}
         alt="contact-form-image"
         className="contact-image"

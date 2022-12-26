@@ -1,5 +1,7 @@
 import { memo } from "react";
 import Heading from "./Heading";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const skills = [
   {
@@ -50,6 +52,11 @@ const others = [
 ];
 
 const Skills = () => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   return (
     <div id="skills" className="page">
       <Heading text={"Skills"} />
@@ -103,7 +110,11 @@ const Skills = () => {
       <div className="others">
         {others.map((item, index) => {
           return (
-            <div className="skills-bar" key={index}>
+            <div
+              className={clsx("skills-bar", inView ? "visible" : "hidden")}
+              key={index}
+              ref={ref}
+            >
               <h3 className="top">
                 <div className="title">{item.title}</div>
                 <div className="progress">{item.progress}%</div>

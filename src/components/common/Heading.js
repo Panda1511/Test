@@ -1,5 +1,20 @@
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
+
 const Heading = ({ text }) => {
-  return <h2 className="heading-section">{text}</h2>;
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  return (
+    <h2
+      className={clsx("heading-section", inView ? "visible" : "hidden")}
+      ref={ref}
+    >
+      {text}
+    </h2>
+  );
 };
 
 export default Heading;

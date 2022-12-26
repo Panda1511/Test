@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { footMenu, footSocial } from "../../data/footerData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useInView } from "react-intersection-observer";
+import clsx from "clsx";
 
 const Footer = () => {
   const [alert, setAlert] = useState("");
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
 
   const onFinish = (values) => {
     setAlert("Thankyou, you are subscribed to receive our daily newsletter");
@@ -37,7 +43,12 @@ const Footer = () => {
               {footSocial.map((item) => {
                 const { id, icon, path } = item;
                 return (
-                  <a href={path} key={id}>
+                  <a
+                    href={path}
+                    key={id}
+                    className={clsx(inView ? "visible" : "hidden")}
+                    ref={ref}
+                  >
                     {icon}
                   </a>
                 );

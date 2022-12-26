@@ -7,15 +7,54 @@ import {
   partner4,
   partner5,
 } from "../../assets";
+import clsx from "clsx";
+import useCounter from "../../hooks/useCounter";
+import { useInView } from "react-intersection-observer";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const About = () => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+  const [showPartner, setShowPartner] = React.useState(false);
+  const [show, setShow] = React.useState(false);
+  const { counter } = useCounter(120, 50, show);
+
+  React.useEffect(() => {
+    if (inView) {
+      setShowPartner(true);
+    }
+  }, [inView]);
+
+  React.useEffect(() => {
+    const subScroll = () => {
+      const top = window.scrollY;
+      if (top > 150) {
+        setShow(true);
+      }
+    };
+
+    window.addEventListener("scroll", subScroll);
+
+    return () => {
+      window.removeEventListener("scroll", subScroll);
+    };
+  }, []);
+
   return (
     <div id="about" className="sect">
       <div className="container">
         <div className={`about_wrapper`}>
           <div className="about_item_image">
-            <img src={aboutImage} alt="author-image" />
+            <LazyLoadImage
+              alt="author-image"
+              effect="blur"
+              placeholderSrc={aboutImage}
+              src={aboutImage}
+            />
           </div>
-          <div className="about_item_text">
+          <div className={clsx("about_item_text", show ? "visible" : "hidden")}>
             <h2>About Me</h2>
             <h3 className="about_goals">
               A small river named Duden flows by their place and supplies it
@@ -48,12 +87,15 @@ const About = () => {
               </li>
             </ul>
             <div className="about_projects_count">
-              <span>120</span> Project complete
+              <span>{counter}</span> Project complete
             </div>
             <div className="btn btn-primary">download cv</div>
           </div>
         </div>
-        <div className="partner">
+        <div
+          className={clsx("partner", showPartner ? "visible" : "hidden")}
+          ref={ref}
+        >
           <div>
             <a href="">
               <img src={partner1} alt="partner-logo" />

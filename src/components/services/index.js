@@ -1,6 +1,8 @@
 import Heading from "../common/Heading";
 import Card from "./Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const services = [
   {
@@ -36,11 +38,16 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   return (
     <div id="services" className="sect">
       <div className="container">
         <Heading text={"Services"} />
-        <p className="slogan">
+        <p className={clsx("slogan", inView ? "visible" : "hidden")} ref={ref}>
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
         </p>

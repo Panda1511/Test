@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/style.scss";
 import "./fontawesome";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

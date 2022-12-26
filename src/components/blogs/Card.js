@@ -1,11 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useInView } from "react-intersection-observer";
 
 const Card = ({ src, title, desc, date, author, comments }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   return (
-    <div className="card-wrapper">
+    <div
+      className={clsx("card-wrapper", inView ? "visible" : "hidden")}
+      ref={ref}
+    >
       <div className="image">
         <a href="#">
-          <img src={src} alt="" />
+          <LazyLoadImage
+            alt="image-blog"
+            effect="blur"
+            placeholderSrc={src}
+            src={src}
+          />
         </a>
       </div>
       <div className="desc">

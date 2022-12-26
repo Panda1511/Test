@@ -1,6 +1,17 @@
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
+
 const Card = ({ icon, title, info }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
   return (
-    <div className="contact-card">
+    <div
+      className={clsx("contact-card", inView ? "visible" : "hidden")}
+      ref={ref}
+    >
       <div className="contact-card-wrapper">
         <div className="icon">{icon}</div>
         <div className="title">{title}</div>

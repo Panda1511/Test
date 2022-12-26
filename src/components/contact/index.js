@@ -2,6 +2,8 @@ import Heading from "../common/Heading";
 import Card from "./Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from "./ContactForm";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const contacts = [
   {
@@ -30,11 +32,18 @@ const contacts = [
 ];
 
 const Contact = () => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
   return (
     <div id="contact">
       <div className="container">
         <Heading text={"Contact Me"} />
-        <div className="slogan">
+        <div
+          className={clsx("slogan", inView ? "visible" : "hidden")}
+          ref={ref}
+        >
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
         </div>

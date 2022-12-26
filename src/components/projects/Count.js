@@ -1,24 +1,29 @@
-const counts = [
-  { number: 100, title: "Awards" },
-  { number: 1200, title: "Complete Projects" },
-  { number: 1200, title: "Happy Customers" },
-  { number: 500, title: "Cups of coffee" },
-];
-const Count = () => {
+import React from "react";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
+import useCounter from "../../hooks/useCounter";
+
+const Count = ({ number, title }) => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+  const [show, setShow] = React.useState(false);
+  const { counter } = useCounter(number, 50, show);
+
+  React.useEffect(() => {
+    if (inView) {
+      setShow(true);
+    }
+  }, [inView]);
+
   return (
-    <div className="projects-count sect">
-      <div className="container">
-        <div className="projects-count-wrapper">
-          {counts.map((item, index) => {
-            return (
-              <div className="count-item" key={index}>
-                <h3 className="number">{item.number}</h3>
-                <p className="title">{item.title}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <div
+      className={clsx("count-item", inView ? "visible" : "hidden")}
+      ref={ref}
+    >
+      <h3 className="number">{counter}</h3>
+      <p className="title">{title}</p>
     </div>
   );
 };

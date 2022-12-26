@@ -82,6 +82,7 @@
     @include margin-y(2rem, 0rem);
     span {
       color: var(--color-hover);
+      font-weight: 600;
     }
   }
   .btn {

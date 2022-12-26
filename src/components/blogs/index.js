@@ -1,6 +1,8 @@
 import Heading from "../common/Heading";
 import Card from "./Card";
 import * as images from "../../assets/blogs_image";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const blogs = [
   {
@@ -30,11 +32,19 @@ const blogs = [
 ];
 
 const Blogs = () => {
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
   return (
     <div id="blogs" className="sect">
       <div className="container">
         <Heading text={"Our Blog"} />
-        <p className="slogan">
+        <p
+          className="slogan"
+          className={clsx("slogan", inView ? "visible" : "hidden")}
+          ref={ref}
+        >
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia
         </p>
