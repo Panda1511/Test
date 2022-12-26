@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import Navbar from "./Navbar";
 
 const Header = () => {
@@ -35,4 +35,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

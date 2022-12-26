@@ -8,6 +8,12 @@ import {
   faEnvelope,
   faHeart,
   faLongArrowDown,
+  faLightbulb,
+  faMagnifyingGlassChart,
+  faFlask,
+  faComment,
+  faPaperPlane,
+  faEarth,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   fab,
@@ -28,5 +34,11 @@ library.add(
   faLongArrowDown,
   faFacebookSquare,
   faTwitterSquare,
-  faLinkedin
+  faLightbulb,
+  faLinkedin,
+  faMagnifyingGlassChart,
+  faFlask,
+  faComment,
+  faPaperPlane,
+  faEarth
 );

@@ -1,7 +1,6 @@
 #about {
   @include dimension(100%, 100%);
   position: relative;
-  @include margin-y(0rem, 6rem);
 }
 
 .about_wrapper {
@@ -46,11 +45,7 @@
     @include margin-y(0.8rem, 1rem);
 
     @include devices(sm) {
-      font-size: 1.8rem;
-    }
-
-    @include devices(xs) {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -69,10 +64,10 @@
       span {
         display: block;
         word-wrap: break-word;
-        width: 130px;
         &:nth-child(1) {
           font-weight: 600;
           color: black;
+          width: 130px;
         }
         &:nth-child(2) {
           width: calc(100% - 130px);
@@ -104,7 +99,7 @@
   img {
     width: 120px;
   }
-  @include devices(mdlg) {
+  @include devices(lg) {
     justify-content: center;
     gap: 20px;
   }

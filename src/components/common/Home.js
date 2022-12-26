@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typed from "typed.js";
 
@@ -44,10 +44,12 @@ const Home = () => {
         </div>
         <div className="mouse">
           <div className="mouse-icon">
-            <FontAwesomeIcon
-              icon="arrow-down-long"
-              style={{ marginRight: "10px" }}
-            />
+            <a href="#resume">
+              <FontAwesomeIcon
+                icon="arrow-down-long"
+                style={{ marginRight: "10px" }}
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -55,4 +57,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

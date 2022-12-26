@@ -1,4 +1,8 @@
 #tabs {
+  transition: all 0.1s linear;
+  top: 180px;
+  position: sticky;
+  margin: 0;
   ul {
     li {
       margin-bottom: 0.8rem;

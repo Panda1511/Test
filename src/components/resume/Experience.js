@@ -2,22 +2,22 @@ import { memo } from "react";
 import Heading from "./Heading";
 import Card from "./Card";
 
-const educations = [
+const experiences = [
   {
     date: "2014-2015",
-    heading: "Bachelor of Science in Computer Science",
+    heading: "Software Developer",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
   {
     date: "2014-2015",
-    heading: "Computer Processing Systems/Computer Software",
+    heading: "Web Designer",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
   {
     date: "2014-2015",
-    heading: "Diploma in Computer",
+    heading: "Web Marketing",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
@@ -27,14 +27,26 @@ const educations = [
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
+  {
+    date: "2014-2015",
+    heading: "Wordpress Developer",
+    title: "Cambridge University",
+    desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+  },
+  {
+    date: "2014-2015",
+    heading: "UI/UX Designer",
+    title: "Cambridge University",
+    desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+  },
 ];
 
-const Education = () => {
+const Experience = () => {
   return (
-    <div id="education" className="page">
-      <Heading text={"Education"} />
-      <div className="education-wrapper">
-        {educations.map((edu, index) => {
+    <div id="experience" className="page">
+      <Heading text={"Experience"} />
+      <div className="experience-wrapper">
+        {experiences.map((edu, index) => {
           return (
             <Card
               key={index}
@@ -50,4 +62,4 @@ const Education = () => {
   );
 };
 
-export default memo(Education);
+export default memo(Experience);

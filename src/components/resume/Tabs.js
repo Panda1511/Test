@@ -1,18 +1,22 @@
+import clsx from "clsx";
+
 const tabs = [
-  { id: "tab1", text: "Education" },
-  { id: "tab2", text: "Experience" },
-  { id: "tab3", text: "Skills" },
-  { id: "tab4", text: "Awards" },
+  { id: "education", text: "Education" },
+  { id: "experience", text: "Experience" },
+  { id: "skills", text: "Skills" },
+  { id: "awards", text: "Awards" },
 ];
 
-const Tabs = () => {
+const Tabs = ({ inViewport }) => {
   return (
-    <div id="tabs">
+    <div id="tabs" className={clsx(inViewport && "fixed")}>
       <ul>
         {tabs.map((tab) => {
           return (
             <li key={tab.id}>
-              <a href={tab.id}>{tab.text}</a>
+              <a href={"#" + tab.id} className="tab">
+                {tab.text}
+              </a>
             </li>
           );
         })}

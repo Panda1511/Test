@@ -68,7 +68,7 @@
     }
   }
 }
-@include devices(mdlg) {
+@include devices(lg) {
   .navbar-collapse {
     flex-basis: 100%;
     -webkit-box-flex: 1;
@@ -94,7 +94,7 @@
         height: auto;
         display: flex;
       }
-      @include devices(mdlg) {
+      @include devices(lg) {
         background-color: black;
         .nav-link {
           display: block;

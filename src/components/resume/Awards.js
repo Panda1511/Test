@@ -2,22 +2,22 @@ import { memo } from "react";
 import Heading from "./Heading";
 import Card from "./Card";
 
-const educations = [
+const awards = [
   {
     date: "2014-2015",
-    heading: "Bachelor of Science in Computer Science",
+    heading: "Top 10 Web Developer",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
   {
     date: "2014-2015",
-    heading: "Computer Processing Systems/Computer Software",
+    heading: "Top 5 LeaderShip Exellence Winner",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
   {
     date: "2014-2015",
-    heading: "Diploma in Computer",
+    heading: "Top 4 Web Tester",
     title: "Cambridge University",
     desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
   },
@@ -29,12 +29,12 @@ const educations = [
   },
 ];
 
-const Education = () => {
+const Awards = () => {
   return (
-    <div id="education" className="page">
-      <Heading text={"Education"} />
-      <div className="education-wrapper">
-        {educations.map((edu, index) => {
+    <div id="awards" className="page">
+      <Heading text={"Awards"} />
+      <div className="awards-wrapper">
+        {awards.map((edu, index) => {
           return (
             <Card
               key={index}
@@ -50,4 +50,4 @@ const Education = () => {
   );
 };
 
-export default memo(Education);
+export default memo(Awards);

@@ -64,7 +64,14 @@
 }
 
 @mixin grid-cols($colsCount, $colsWidth, $gap) {
+  display: grid;
   grid-template-columns: repeat($colsCount, $colsWidth);
+  gap: $gap;
+}
+
+@mixin gird-cols-custom($col1, $col2, $gap: 0) {
+  display: grid;
+  grid-template-columns: $col1 $col2;
   gap: $gap;
 }
 
@@ -86,10 +93,6 @@
     }
   } @else if $breakpoint==lg {
     @media (max-width: 1023.98px) {
-      @content;
-    }
-  } @else if $breakpoint==mdlg {
-    @media (max-width: 900px) {
       @content;
     }
   } @else if $breakpoint==md {

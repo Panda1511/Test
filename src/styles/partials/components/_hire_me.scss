@@ -1,0 +1,48 @@
+#hire_me {
+  padding: 7rem 0;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-hover);
+    opacity: 0.7;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    .heading {
+      text-align: center;
+      color: #fff;
+      line-height: 1.5;
+      font-size: 40px;
+      font-weight: 900;
+      span {
+        color: #a0f669;
+      }
+    }
+    .slogan {
+      margin-bottom: 0;
+    }
+    .btn {
+    }
+    .btn-primary {
+    }
+  }
+}
